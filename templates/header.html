@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Breast Cancer Resources</title>
+    <link href="{{ url_for('static', filename='styles/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles/jumbotron-narrow.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script> 
+    <style>
+        .img-custom {
+        /*position: relative;
+        float: left;*/
+        width:  60px;
+        height: 60px;
+        background-position: 50% 50%;
+        background-repeat:   no-repeat;
+        background-size:     cover;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="about">About</a>
+                    </li>
+                    <li role="presentation"><a href="archives">Older Posts</a>
+                    </li>
+                    <li role="presentation"><a href="contact">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            <h3 class="text-muted">ER+ BC Resources</h3>
+        </div>
+
+        {% block body %}{% endblock %}
+ 
+    </div>
+</body>
+ 
+</html>

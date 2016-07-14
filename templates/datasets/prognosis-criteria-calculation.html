@@ -1,0 +1,49 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the database
+
+The links inlcuded and other links from there on offer explanations for the source of data, calculation procedure, follow up procedure, methodologies and criteria for inclusion
+
+####Access priviliges
+
+Check individual links
+
+####Location
+[Technical Notes and Metods][1]
+[Criteria][2]
+[Survival Measures][3]
+[Other Reports][4]
+
+[1]: http://www.cdc.gov/cancer/npcr/uscs/technical_notes/stat_methods/survival.htm
+[2]: http://www.cdc.gov/cancer/npcr/uscs/technical_notes/criteria.htm
+[3]: http://surveillance.cancer.gov/survival/measures.html
+[4]: http://surveillance.cancer.gov/reports/
+
+{% endfilter %}
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}

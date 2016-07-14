@@ -1,0 +1,84 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#ds" aria-controls="ds" role="tab" data-toggle="tab">Data Sets</a></li>
+    <li role="presentation"><a href="#pub" aria-controls="pub" role="tab" data-toggle="tab">Publications</a></li>
+    <li role="presentation"><a href="#media" aria-controls="media" role="tab" data-toggle="tab">Media</a></li>
+    <li role="presentation"><a href="#phy" aria-controls="phy" role="tab" data-toggle="tab">Physicians</a></li>
+    <li role="presentation"><a href="#articles" aria-controls="articles" role="tab" data-toggle="tab">Articles</a></li>
+    <li role="presentation"><a href="#org" aria-controls="org" role="tab" data-toggle="tab">Organizations</a></li>
+    <li role="presentation"><a href="#qs" aria-controls="qs" role="tab" data-toggle="tab">Open Questions</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="ds">
+    	<ul>
+    		{% for t in TOPIC_DICT["datasets"] %}
+    		  <br>
+    		  <li><strong>{{ t[0] }} : </strong><a href="/datasets/{{ t[2] }}">{{ t[1] }}</a></li>
+    		{% endfor %}
+    	</ul>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="pub">
+
+		<ul>
+    		{% for t in TOPIC_DICT["publications"] %}
+    		  <br>
+    		  <li><strong>{{ t[0] }} : </strong><a href="/publications/{{ t[2] }}">{{ t[1] }}</a></li>
+    		{% endfor %}
+    	</ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="media">
+
+    	<ul>
+    		{% for t in TOPIC_DICT["media"] %}
+    		  <br>
+    		  <li><strong>{{ t[0] }} : </strong><a href="/media/{{ t[2] }}">{{ t[1] }}</a></li>
+    		{% endfor %}
+    	</ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="phy">
+
+    	<ul>
+    		{% for t in TOPIC_DICT["physicians"] %}
+    		  <br>
+    		  <li><strong>{{ t[0] }} : </strong><a href="/physicians/{{ t[2] }}">{{ t[1] }}</a></li>
+    		{% endfor %}
+    	</ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="articles">
+
+    	<ul>
+    		{% for t in TOPIC_DICT["articles"] %}
+    		  <br>
+    		  <li><strong>{{ t[0] }} : </strong><a href="/articles/{{ t[2] }}">{{ t[1] }}</a></li>
+    		{% endfor %}
+    	</ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="org">
+
+    	<ul>
+    		{% for t in TOPIC_DICT["organizations"] %}
+    		  <br>
+    		  <li><strong>{{ t[0] }} : </strong><a href="/organizations/{{ t[2] }}">{{ t[1] }}</a></li>
+    		{% endfor %}
+    	</ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="qs">...</div>
+  </div>
+
+
+</div>
+
+{% endblock %}

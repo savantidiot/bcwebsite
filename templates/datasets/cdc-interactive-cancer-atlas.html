@@ -1,0 +1,41 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the database
+
+1999-2012 Cancer Incidence and Mortality Data presented in a visual atlas / table format
+
+####Access priviliges
+
+Publicly accessible
+
+####Location
+[Access the database here](https://nccd.cdc.gov/DCPC_INCA/)
+
+{% endfilter %}
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}

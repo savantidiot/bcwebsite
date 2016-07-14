@@ -1,0 +1,152 @@
+<!-- All tabs of the dashboard use the same logic, drawing from the contentmanagement.py file except the 'Physicians' tab, which draws from 'physicianlib.py' file-->
+
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#ds" aria-controls="ds" role="tab" data-toggle="tab">Data Sets</a></li>
+    <li role="presentation"><a href="#pub" aria-controls="pub" role="tab" data-toggle="tab">Publications</a></li>
+    <li role="presentation"><a href="#media" aria-controls="media" role="tab" data-toggle="tab">Media</a></li>
+    <li role="presentation"><a href="#phy" aria-controls="phy" role="tab" data-toggle="tab">Physicians</a></li>
+    <li role="presentation"><a href="#articles" aria-controls="articles" role="tab" data-toggle="tab">Articles</a></li>
+    <li role="presentation"><a href="#org" aria-controls="org" role="tab" data-toggle="tab">Organizations</a></li>
+    <li role="presentation"><a href="#qs" aria-controls="qs" role="tab" data-toggle="tab">Open Questions</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="ds">
+        <ul>
+            {% for t in TOPIC_DICT["datasets"] %}
+              <br>
+              <li><strong>{{ t[0] }} : </strong><a href="/datasets/{{ t[2] }}">{{ t[1] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="pub">
+
+        <div class="panel-body">
+          <p>This is a list of publications from various medical and science journals with content immediately relevant to ER+ breast cancer.  My notes on each studies' relevance are not scientifically articulated reviews; they are just reference notes for personal use.  The list will be regularly updated.</p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Date Reviewed</th>
+                <th>Publication Title</th>
+                <th>Publication Date</th>
+                <th>Publication Scope</th>
+                <th>Notes on Relevance</th>
+                <th>Keywords</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in PUB_DICT["publications"] %}
+                <tr>
+                  <td>{{p[0]}}</td>
+                  <td><a href="{{p[6]}}">{{p[1]}}</a></td>
+                  <td>{{p[2]}}</td>
+                  <td>{{p[3]}}</td>
+                  <td>{{p[4]}}</td>
+                  <td>{{p[5]}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="media">
+
+        <ul>
+            {% for t in TOPIC_DICT["media"] %}
+              <br>
+              <li><strong>{{ t[0] }} : </strong><a href="/media/{{ t[2] }}">{{ t[1] }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="phy">
+
+        <div class="panel-body">
+          <p>This is a list of researchers and physicians who are taking different approaches to understand the drivers of and to develop a cure for ER+ breast cancer.  Articles and publications authored by these people might be indicative of future developments in ER+ breast cancer care.  The list will be regularly updated.</p>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th></th>
+                <th>Specialization</th>
+                <th>Location</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in PHY_DICT["physicians"] %}
+                <tr>
+                  <td><a href="{{p[3]}}">{{p[0]}}</a></td>
+                  <td><img src="{{ url_for('static', filename=p[5]) }}" class="img-custom"></td>
+                  <td>{{p[1]}}</td>
+                  <td>{{p[2]}}</td>
+                  <td>{{p[4]}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="articles">
+
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          {% for t in TOPIC_DICT["datasets"] %}
+
+            <div class="panel panel-info">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#{{t[2]}}" aria-expanded="true" aria-controls="collapseOne">
+                    {{ t[1] }}
+                </a></h4>
+              </div>
+              <div id={{t[2]}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <div w3-include-html="/datasets/{{ t[2] }}"></div>
+                </div>
+              </div>
+            </div>
+
+          {% endfor %}
+          
+        </div>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="org">
+
+        <ul>
+            {% for t in TOPIC_DICT["organizations"] %}
+              <br>
+              <li><strong>{{ t[0] }} : </strong><a href="/organizations/{{ t[2] }}">{{ t[1] }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="qs">...</div>
+  </div>
+
+<script>
+w3IncludeHTML();
+</script>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the organization
+
+The breastcancerdeadline2020 has set an urgent and plausible goal with clear vision to eliminate breast cancer by Jan 2020.  This intention is something I am fully benhind-- the urgency of the organization appeals to me.  Also, they are focused on research that has helped bring Herceptin into the market.  They have programs to allow advocates to join their PROJECT LEAD initiatives to help drive BC research.  Try to sign up immediately and push to get into their project LEAD conference for July.
+
+####Location
+
+NA
+
+####URL
+[Main page][1]
+
+[How to get involved and training modules offered][2]
+
+[1]: http://www.breastcancerdeadline2020.org/homepage.html
+[2]: http://www.breastcancerdeadline2020.org/get-involved/training/
+
+
+{% endfilter %}
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}

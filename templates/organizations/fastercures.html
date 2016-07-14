@@ -1,0 +1,49 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the organization
+
+FasterCures is an action tank that works to speed and improve the medical research system. 
+10,000 diseases. 500 treatments. We have work to do.
+FasterCures, a DC-based center of the Milken Institute, is driven by a singular goal – to save lives by speeding up and improving the medical research system.
+
+####Location
+
+NA
+
+####URL
+[Main page of FasterCures][1]
+
+[List of speakers in attendace for the PartneringforCures conference in 2016][2]
+
+[1]: http://www.fastercures.org/
+[2]: http://www.partneringforcures.org/program/speakers/
+
+
+{% endfilter %}
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}

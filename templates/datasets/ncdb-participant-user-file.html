@@ -1,0 +1,41 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the database
+
+The Participant User File contains de-identified patient level data that do not identify hospitals, health care providers, or patients as agreed to in the Business Associate Agreement that each CoC-accredited program has signed with the American College of Surgeons
+
+####Access priviliges
+
+NCDB PUFs are only available through an application process to investigators associated with CoC-accredited cancer programs. The Request for Applications occurs on a semi-annual basis, and PUFs are referred to by their most recent year of diagnosis included in the data file
+
+####Location
+[Access the database here:](https://www.facs.org/quality-programs/cancer/ncdb/puf)
+
+{% endfilter %}
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}

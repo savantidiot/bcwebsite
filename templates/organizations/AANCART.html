@@ -1,0 +1,45 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the organization
+
+Established in 2000, AANCART is a National Cancer Institute designated National Center for Reducing Asian American Cancer Health Disparities. AANCART’s focus is on reducing the unique, unusual, and unnecessary cancer burden affecting Asian American
+Mission: "Our mission is to reduce cancer health disparities by conducting community-based participatory education, training, and research by, for, and with Asian American community"
+
+####Location
+
+UC Davis Comprehensive Cancer Center (serve primarily the west coast)
+
+####URL
+[AANCART Home Page][1]
+
+[1]: http://aancart.org/about-us/
+
+
+{% endfilter %}
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}

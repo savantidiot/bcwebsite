@@ -1,0 +1,59 @@
+{% extends 'header.html' %}
+
+{% block body %}
+
+<div>
+
+<h4><strong>{{ post_title }}</strong></h4>
+
+<h6 class="text-primary"> {{ post_date }} | {{ user_name }} </h6>
+
+
+{% filter markdown %}
+
+####About the podcast
+
+Diane Rehm asks very focused questions about the role of Immunotherapy in treating cancer to two specialized oncologists from MD Anderson (Dr. Ron DePinho) and Lombardi Center (Dr. Louis Weiner).  Very insightful conversation worth revisiting
+
+####Source
+
+[New promise for immunotherapy drugs][2]
+
+[The Diane Rehm Show][1]
+
+[1]: http://thedianerehmshow.org/rss/npr/dr_podcast.xml
+
+[2]: http://thedianerehmshow.org/shows/2016-04-21/new-promise-for-immunotherapy-cancer-drugs
+
+####Tags
+
+Immunotherapy
+
+<!-- Delete the below line (Listen) if you are not embedding media on this page -->
+####Listen
+
+{% endfilter %}
+
+<!-- Paste the embedded media link in this section -->
+<audio controls>
+  <source src="http://thedianerehmshow.org/audio/#/shows/2016-04-21/new-promise-for-immunotherapy-cancer-drugs/112438/" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<!-- Paste the embedded media link in this section -->
+
+</div>
+
+<div>
+
+	<hr>
+	<nav>
+	  <ul class="pager">
+	    <li><a href="/#media">Back to Main Page</a></li>
+	  </ul>
+	</nav>
+
+
+</div>
+
+{% endblock %}
